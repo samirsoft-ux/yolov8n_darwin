@@ -1,3 +1,16 @@
+
+Dependencias necesarias (volverlo automático):
+pip install ultralytics
+pip install supervision==0.1.0
+pip install loguru lap thop
+git clone https://github.com/ifzhang/ByteTrack.git
+cd ByteTrack
+pip install -r requirements.txt
+python3 setup.py develop
+pip install cython_bbox
+pip install onemetric
+
+
 Te explico el significado de cada uno de los argumentos dentro de la clase BYTETrackerArgs, para que puedas ajustarlos de acuerdo a las necesidades de tu caso de uso:
 
 1. track_thresh: float = 0.25

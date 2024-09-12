@@ -1,4 +1,5 @@
 import cv2
+from typing import List
 import numpy as np
 from ultralytics import YOLO
 from supervision.video.sink import VideoSink
@@ -13,7 +14,7 @@ from onemetric.cv.utils.iou import box_iou_batch
 rtsp_url = 'rtsp://admin:Hik12345@192.168.1.151:554/Streaming/Channels/101'
 
 # Crear una instancia del modelo YOLOv8n
-model = YOLO('C:/Users/jhonatan.chocce/Documents/proyectoyolo/models/person.pt')
+model = YOLO('/root/yolov8n_darwin/person.pt')
 
 # Argumentos para ByteTrack
 @dataclass(frozen=True)
@@ -47,10 +48,10 @@ def detections2boxes(detections: Detections) -> np.ndarray:
         detections.confidence[:, np.newaxis]
     ))
 
-def tracks2boxes(tracks: list[STrack]) -> np.ndarray:
+def tracks2boxes(tracks: List[STrack]) -> np.ndarray:
     return np.array([track.tlbr for track in tracks], dtype=float)
 
-def match_detections_with_tracks(detections: Detections, tracks: list[STrack]) -> np.ndarray:
+def match_detections_with_tracks(detections: Detections, tracks: List[STrack]) -> np.ndarray:
     if not np.any(detections.xyxy) or len(tracks) == 0:
         return np.empty((0,))
     tracks_boxes = tracks2boxes(tracks)

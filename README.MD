@@ -1,12 +1,20 @@
 Pasos para replicar el ambiente:
-conda create --name ambiente python=3..8.19
-conda activate ambiente
-pip install numpy==1.19.5
-conda install --file paquetes_conda.txt
-pip install -r paquetes_pip.txt
-git clone https://github.com/ifzhang/ByteTrack.git (si esta en el repositorio ya no es necesario)
-cd ByteTrack
-python setup.py -q develop
+
+- conda create --name ambiente python=3..8.19
+
+- conda activate ambiente
+
+- pip install numpy==1.19.5
+
+- conda install --file paquetes_conda.txt
+
+- pip install -r paquetes_pip.txt
+
+- git clone https://github.com/ifzhang/ByteTrack.git (si esta en el repositorio ya no es necesario)
+
+- cd ByteTrack
+
+- python setup.py -q develop
 
 Notas a tener en cuenta:
 el archivo backup original de mi entorno que esta funcionando pero esta con una versión de python no soportada

@@ -1,15 +1,23 @@
-
-Dependencias necesarias (volverlo automático):
-pip install ultralytics
-pip install supervision==0.1.0
-pip install loguru lap thop
-git clone https://github.com/ifzhang/ByteTrack.git
+Pasos para replicar el ambiente:
+conda create --name ambiente python=3..8.19
+conda activate ambiente
+pip install numpy==1.19.5
+conda install --file paquetes_conda.txt
+pip install -r paquetes_pip.txt
+git clone https://github.com/ifzhang/ByteTrack.git (si esta en el repositorio ya no es necesario)
 cd ByteTrack
-pip install -r requirements.txt
-python3 setup.py develop
-pip install cython_bbox
-pip install onemetric
+python setup.py -q develop
 
+Notas a tener en cuenta:
+el archivo backup original de mi entorno que esta funcionando pero esta con una versión de python no soportada
+
+- test: es el nombre del entorno
+- original_entorno.yml: es el archivo que guarda todas las dependencias
+
+
+- backup_entorno.yml: es donde he modificado la versión de python a la 3.9
+
+------------------------------------------------------------------------------------------------------------------
 
 Te explico el significado de cada uno de los argumentos dentro de la clase BYTETrackerArgs, para que puedas ajustarlos de acuerdo a las necesidades de tu caso de uso:
 
